@@ -13,10 +13,10 @@ def typesPredefinis():
         replay = input("Voulez-vous recommencer [oO] ? ")
 
         if replay.lower() != 'o':
-            print(f"Merci a bientot")
+            print("Merci a bientot")
             break
         elif replay.upper() != 'O':
-            print(f"Merci a bientot")
+            print("Merci a bientot")
             break
 
 def calculSurface():
@@ -39,7 +39,7 @@ def sommeFactoriel():
     while True:
         num = int(input("entrer un entier positif : "))
         if num < 1:
-            print(f"Vous avez choisi un entier non positif")
+            print("Vous avez choisi un entier non positif")
             break
         else :
             for i in range(num):
@@ -57,12 +57,11 @@ def sommeFactoriel():
             replay = input("Voulez-vous recommencer [oO] ? ")
 
             if replay.lower() != 'o':
-                print(f"Merci a bientot")
+                print("Merci a bientot")
                 break
             elif replay.upper() != 'O':
-                print(f"Merci a bientot")
+                print("Merci a bientot")
                 break
-                
 
 def arbreNoel():
     hauteur = int(input("Hauteur de l'arbre : "))
@@ -89,12 +88,57 @@ def maths():
     print(f"Le sinus de {num} est {sin}")
     print(f"Le cosinus de {num} est {cos}")
 
+
+
 def tierce():
     nb_partants = int(input("Combien y a-t-il de chevaux partants : "))
     nb_joues = int(input("Combien y a-t-il de chevaux joues : "))
 
     X = nb_partants /(nb_partants-nb_joues)
 
+def menu():
+    while True:
+        nb = int(input("""
+    Bienvenue dans l'exercice 1 !
+    
+        1 - TP1.1 Types predefinis
+        2 - TP1.2 Calcul d'une surface
+        3 - TP1.3 Somme & factoriel
+        4 - TP1.4 Arbre de Noel
+        5 - TP1.5 Math
+        6 - TP1.6 Fonctions
+        7 - TP1.7 Fonctions
+        8 - TP1.8 Le Tierce
+        0 - Exit/Quitter
+        Veuillez choisir le TP que vous voulez essayer : """))
+        if nb == 1:
+            print("Vous avez choisi le TP1.1 ")
+            typesPredefinis()
+        elif nb == 2:
+            print("Vous avez choisi le TP1.2 ")
+            calculSurface()
+        elif nb == 3:
+            print("Vous avez choisi le TP1.3 ")
+            sommeFactoriel()
+        elif nb == 4:
+            print("Vous avez choisi le TP1.4 ")
+            arbreNoel()
+        elif nb == 5:
+            print("Vous avez choisi le TP1.5 ")
+            maths()
+        elif nb == 6:
+            print("Vous avez choisi le TP1.6 ")
+        elif nb == 7:
+            print("Vous avez choisi le TP1.7 ")
+        elif nb == 8:
+            print("Vous avez choisi le TP1.8 ")
+            tierce()
+        elif nb == 0:
+            print("Vous avez choisi de quitter l'exercice ")
+            break
+        else:
+            print("Merci de choisir un nombre compris dans la liste")
+
 
 if __name__ == "__main__":
-    sommeFactoriel()
+    menu()
