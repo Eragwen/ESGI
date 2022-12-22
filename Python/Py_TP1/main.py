@@ -88,13 +88,13 @@ def maths():
     print(f"Le sinus de {num} est {sin}")
     print(f"Le cosinus de {num} est {cos}")
 
-def factoriel(n) -> int:
+def factoriel(n: int):
     return math.factorial(n)
 
-def f1(x, n) -> float:
+def f1(x: float, n: int):
     return (x**n) / factoriel(n)
 
-def Res(x, n) -> float:
+def Res(x: float, n:int):
     res = 0
     for n in range(1, n + 1):
         res += f1(x,n)
