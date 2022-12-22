@@ -88,7 +88,24 @@ def maths():
     print(f"Le sinus de {num} est {sin}")
     print(f"Le cosinus de {num} est {cos}")
 
+def factoriel(n) -> int:
+    return math.factorial(n)
 
+def f1(x, n) -> float:
+    return (x**n) / factoriel(n)
+
+def Res(x, n) -> float:
+    res = 0
+    for n in range(1, n + 1):
+        res += f1(x,n)
+    return res
+
+def U(n: int) -> float:
+    if n == 0: return 1
+    else: return U(n - 1) +1 / factoriel(n)
+    
+def V(n: int) -> float:
+    return U(n) +1 / (n * factoriel(n))
 
 def tierce():
     nb_partants = int(input("Combien y a-t-il de chevaux partants : "))
@@ -106,8 +123,8 @@ def menu():
         3 - TP1.3 Somme & factoriel
         4 - TP1.4 Arbre de Noel
         5 - TP1.5 Math
-        6 - TP1.6 Fonctions
-        7 - TP1.7 Fonctions
+        6 - TP1.6 Fonctions (factoriel() / f1() / Res())
+        7 - TP1.7 Fonctions (U() / V())
         8 - TP1.8 Le Tierce
         0 - Exit/Quitter
         Veuillez choisir le TP que vous voulez essayer : """))
@@ -128,8 +145,21 @@ def menu():
             maths()
         elif nb == 6:
             print("Vous avez choisi le TP1.6 ")
+            N = int(input("Rentrez un entier : "))
+            X = int(input("Rentrez un reel inferieur a 0 : "))
+            while X >=0:
+                print("Le reel rentre n'est pas inferieur a 0")
+                X = int(input("Merci de rentrer un nombre correspondant a la demande : "))
+            print("factoriel(n) = ", factoriel(N))
+            print("f1(x, n) = ", f1(X, N))
+            print("Res(x, n) = ", Res(X, N))
+            print("math.exp(x) = ", math.exp(X))
+
         elif nb == 7:
             print("Vous avez choisi le TP1.7 ")
+            n = int(input("Choisissez un entier : "))
+            print(f"U({n}) = {U(n)}")
+            print(f"V({n}) = {V(n)}")
         elif nb == 8:
             print("Vous avez choisi le TP1.8 ")
             tierce()
