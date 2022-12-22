@@ -108,10 +108,16 @@ def V(n: int) -> float:
     return U(n) +1 / (n * factoriel(n))
 
 def tierce():
-    nb_partants = int(input("Combien y a-t-il de chevaux partants : "))
-    nb_joues = int(input("Combien y a-t-il de chevaux joues : "))
+    n = int(input("Combien y a-t-il de chevaux partants : "))
+    p = int(input("Combien y a-t-il de chevaux joues : "))
 
-    X = nb_partants /(nb_partants-nb_joues)
+    X = factoriel(n) /factoriel(n-p)
+    Y = factoriel(n) / (factoriel(p)*factoriel(n-p))
+
+    print(f"""
+- Dans l'ordre : une chance sur {X} de gagner
+- Dans le desordre : une chance sur {Y} de gagner
+    """)
 
 def menu():
     while True:
