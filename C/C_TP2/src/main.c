@@ -4,49 +4,34 @@
 #include <math.h>
 #include <time.h>
 
-void eqSecondDegre(int a, int b, int c)
-{
-    float delta, x1, x2;
-    delta = b*b - 4*a*c;
-    if (delta < 0)
-    {
+void eqSecondDegre(int a, int b, int c) {
+    float delta = b*b - 4*a*c;
+    if (delta < 0) {
         printf("Pas de solution\n");
-    }
-    else if (delta == 0)
-    {
-        x1 = -b/(2*a);
+    } else if (delta == 0) {
+        float x1 = -b/(2*a);
         printf("x1 = x2 = %.2f", x1);
-    }
-    else
-    {
-        x1 = (-b + sqrt(delta))/(2*a);
-        x2 = (-b - sqrt(delta))/(2*a);
+    } else {
+        float x1 = (-b + sqrt(delta))/(2*a);
+        float x2 = (-b - sqrt(delta))/(2*a);
         printf("\nL'equation admet 2 solutions qui sont : \n");
-        printf("- x1 = %.2f \n", x1);
-        printf("- x2 = %.2f \n", x2);
+        printf(" - x1 = %.2f\n - x2 = %.2f\n", x1, x2);
     }
 }
 
-
-void suite(){
-    int n=0;
-    float u=2, res=0;
-    printf("Entrer n : ");
-    scanf("%d", &n);
+void suite(int n){
+    float u=2, result=0;
     printf("Suite de %d : \n", n);
     printf("U0 = %f \n", u);
-    for (int i = 1; i <= n; i++)
-    {
-        res = 0.5 * (u + 2/u);
-        if (i%10 == 0)
-        {
+    for (int i = 1; i <= n; i++) {
+        u = 0.5 * (u + 2/u);
+        if (i%10 == 0) {
             printf("U%d = %f \n", i, u);
         }
-        u = res;
     }
-    printf("Le resultat de U[%d] est %f \n", n, res);
-    printf("Cette suite tant vers le resultat positif de la resolution de l'equation x^2 - 2 qui est %f. \n\n", res);
-    
+    result = u;
+    printf("Le resultat de U[%d] est %f \n", n, result);
+    printf("Cette suite tant vers le resultat positif de la resolution de l'equation x^2 - 2 qui est %f. \n\n", result);
 }
 
 float fibonacci(int n){
@@ -280,14 +265,16 @@ int main (){
                 break;
             case 2:
                 printf("Vous avez choisi le TP2.2\n" );
-                suite();
+                int suit = 0;                
+                printf("Entrer n : ");
+                scanf("%d", &suit);
+                suite(suit);
                 break;
             case 3:
                 printf("Vous avez choisi le TP2.3\n" );
                 int n = 0;
                 printf("Entrer n : ");
                 scanf("%d", &n);
-
                 printf("Fibonacci de %d est %.0f : F[%d] = %.0f\n", n, fibonacci(n), n, fibonacci(n));
                 break;
             case 4:
