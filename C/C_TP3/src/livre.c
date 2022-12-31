@@ -1,22 +1,23 @@
-#include <livre.h>
+#include "../Headers/inc/ProjetExemple/livre.h"
 
 struct Livre {
-   char  *nom;
-   char  *auteur;
-   char  *maisonEdit;
-   char  *codeBarre;
+   char *nom;
+   char *auteur;
+   char *maisonEdit;
+   char *codeBarre;
 };
 
-void creerLivre(struct Livre* livre, char* nom, char* auteur, char* maisonEdit, char* codeBarre){
+void creerLivre(Livre *livre, char *nom, char *auteur, char *maisonEdit, char *codeBarre){
    livre->nom= nom;
    livre->auteur= auteur;
    livre->maisonEdit= maisonEdit;
    livre->codeBarre= codeBarre;
 }
 
-void modifierLivre(struct Livre* livre, char* attr, char* value){
+void modifierLivre(Livre *livre, char *attr, char *value){
    if(strcmp(attr, "nom") == 0){
-      strcpy(livre->nom, value);
+      printf("Modification en cours... \n");
+      livre->nom = value;
    }else if(strcmp(attr, "auteur") == 0){
       strcpy(livre->auteur, value);
    }else if (strcmp(attr, "maisonEdit") == 0){
@@ -26,9 +27,10 @@ void modifierLivre(struct Livre* livre, char* attr, char* value){
    }
 }
 
-char* selectionLivre(struct Livre* livre, char* attr){
-   if (strcmp(attr, "nom") == 0)
+char *selectionLivre(Livre *livre, char *attr){
+   if (strcmp(attr, "nom")==0)
    {
+      printf("Le nom : %s\n",livre->nom);
       return livre->nom;
    }else if (strcmp(attr, "auteur") == 0)
    {
@@ -40,11 +42,12 @@ char* selectionLivre(struct Livre* livre, char* attr){
    {
       return livre->codeBarre;
    }else{
+      printf("Invalid");
       return NULL;
    }    
 }
 
-void afficherLivre(struct Livre *livre){
+void afficherLivre(Livre *livre){
    printf("Le nom : %s\n", livre->nom);
    printf("L'auteur : %s\n", livre->auteur);
    printf("La maison d'edition : %s\n", livre->maisonEdit);
@@ -52,47 +55,16 @@ void afficherLivre(struct Livre *livre){
 }
 
 int unLivre(){
-   int f = 1;
-   char attribut, valeur;
    printf("Commencons par creer un premier livre\n");
-   struct Livre livre1;
+   struct Livre *livre1;
    creerLivre(&livre1, "Cendrillon", "Joel Pommerat", "Les Ateliers d'ACTES SUD", "023194I328");
-   while (f!=0)
-   {
-      printf("\nVous pouvez maintenant choisir entre 4 choix pour la suite : \n");
-      printf("   1- Creation d'un nouveau Livre\n");
-      printf("   2- Modification d'un attribut du Livre\n");
-      printf("   3- Selection d'un attribut du Livre\n");
-      printf("   4- Affichage des informations du Livre\n");
-      printf("   0- Pour sortir de ce TP\n");
-      scanf("%d", &f);
-      switch(f){
-         case 0:
-            printf("Vous avez choisi de quitter ce TP\n");
-            break;
-         case 1:
-            printf("Vous avez choisi de creer un nouveau Livre\n");
-            creerLivre(&livre1, "Alice au pays des merveilles", "Lewis Carrol", "Collection METAMORPHOSE", "023194I329");
-            break;
-         case 2:
-            printf("Vous avez choisi de modifier l'attribut du Livre\n");
-            printf("Quel attribut souhaitez-vous modifier ? ");
-            scanf("%s", attribut);
-            printf("\nQuel valeur souhaitez-vous écrire ? ");
-            scanf("%s",valeur);
-            modifierLivre(&livre1, &attribut, &valeur);
-            break;
-         case 3:
-            printf("Vous avez choisi de selectionner l'attribut du Livre\n");
-            printf("Quel attribut souhaitez-vous consulter ? ");
-            scanf("%s", attribut);
-            selectionLivre(&livre1, &attribut);
-            break;
-         case 4:
-            printf("Vous avez choisi d'afficher les informations du Livre\n");
-            afficherLivre(&livre1);
-            break;
-      }
-   }
+   printf("On affiche maintenant le livre : \n");
+   afficherLivre(&livre1);
+   printf("Selectionnons un attrubut du livre, on va choisir le nom : \n");
+   selectionLivre(&livre1, "nom");
+   printf("Modifions maintenant le nom de ce livre \n");
+   modifierLivre(&livre1, "nom", "Nouveau Nom");
+   printf("On re affiche le livre avec le nouveau nom : \n");
+   afficherLivre(&livre1);
    return 0;
 }

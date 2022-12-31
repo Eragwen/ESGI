@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #ifndef LIVRE_H
 #define LIVRE_H
@@ -12,13 +13,13 @@ typedef struct
     char *codeBarre;
 }Livre;
 
-void creerLivre(struct Livre* livre, char *nom, char *auteur, char *maisonEdit, char *codeBarre);
+void creerLivre(Livre *livre, char *nom, char *auteur, char *maisonEdit, char *codeBarre);
 
-void modifierLivre(struct Livre* livre, char* attr, char* value);
+void modifierLivre(Livre *livre, char *attr, char *value);
 
-char* selectionLivre(struct Livre* livre, char* attr);
+char* selectionLivre(Livre *livre, char *attr);
 
-void afficherLivre(struct Livre* livre);
+void afficherLivre(Livre *livre);
 
 int unLivre();
 

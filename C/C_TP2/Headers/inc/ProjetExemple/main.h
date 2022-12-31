@@ -1,20 +1,20 @@
-#ifndef Main_H
-#define Main_H
+#ifndef MAIN_H
+#define MAIN_H
 
-void polygone(int c, int n);
-
-void sommeMultiplicity(int n);
-
-void plusGrand();
+void eqSecondDegre(int a, int b, int c);
 
 void suite();
 
-void tableAscii();
+void fibonacci(int n);
 
-void afficheTriangleSapin(const unsigned int n, char c);
+void nbrOr();
 
-void tableau();
+void nbrOrFibonacci();
+
+int lancer_de();
+
+void lancerDes(int nb_parties);
 
 int main();
 
-#endif
+#endif /*MAIN_H*/

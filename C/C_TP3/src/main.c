@@ -1,5 +1,6 @@
-#include <referencePointeur.h>
-#include <livre.h>
+#include "../Headers/inc/ProjetExemple/reference_1.h"
+#include "../Headers/inc/ProjetExemple/reference_2.h"
+#include "../Headers/inc/ProjetExemple/livre.h"
 
 int main(){
    int tp =1;    // tp = numéro du TP
@@ -18,18 +19,19 @@ int main(){
                printf("Vous avez choisi de sortir du programme.\n");
                break;
             case 1:
-               unsigned int a,b,c;
                printf("Vous avez choisi le TP3.1\n" );
+               C_1();
                break;
             case 2:
                printf("Vous avez choisi le TP3.2\n" );
+               C_2();
                break;
             case 3:
                printf("Vous avez choisi le TP3.3\n" );
                unLivre();
                break;
             default:
-               printf("Erreur, veuillez rentrer un nombre entre 1 et 5 \n");
+               printf("Erreur, veuillez rentrer un nombre entre 0 et 3 \n");
                break;
          }
       }

@@ -50,12 +50,9 @@ void suite(){
 }
 
 float fibonacci(int n){
-    if (n == 0)
+    if (n == 0 || n == 1)
     {
-        return 0;
-    }else if (n == 1)
-    {
-        return 1;
+        return n;
     }else
     {
         return fibonacci(n-1) + fibonacci(n-2);
@@ -77,10 +74,11 @@ void nbrOrFibonacci(){
     for (i = 1; i <= n; i++)
     {
         or = fibonacci(i+1) / fibonacci(i);
-        if (i%5 == 0)
+        if (i == 1 || i%5 == 0)
         {
             printf("O[%d] = %.3f\n", i, or);
         }
+        
     }
     
     printf("Le resultat de O[%d] = %.3f\n", n, or);
@@ -146,10 +144,8 @@ void lancerDes(int nb_parties) {
                     for (int j = 1; j < 3; j++) {
                         if ((lancer2[j] == 1 || lancer2[j] == 2 || lancer2[j] == 4) && ((lancer2[j] != garder[j-1])&&(lancer2[j] != garder[j-2]))) {
                             garder[x] = lancer2[j];
-                            printf("(%d", garder[x]);
                             x++;
                         }
-                        printf(")");
                     }
                 }else if (compteur == 3){
                     // Lancer 2 avec 3 dés 
@@ -162,10 +158,8 @@ void lancerDes(int nb_parties) {
                     for (int j = 0; j < 3; j++) {
                         if ((lancer2[j] == 1 || lancer2[j] == 2 || lancer2[j] == 4) && ((lancer2[j] != garder[j-1])&&(lancer2[j] != garder[j-2]))) {
                             garder[x] = lancer2[j];
-                            printf("(%d", garder[x]);
                             x++;
                         }
-                        printf(")");
                     }
                 }
             }
@@ -173,16 +167,16 @@ void lancerDes(int nb_parties) {
             {
                 printf("je garde ");
                 for (int j = 0; j < 3; j++) {
-                if (garder[j] != 0) {
-                    printf("%d ", garder[j]);
-                    printf(", ");
-                }
+                    if (garder[j] != 0) {
+                        printf("%d", garder[j]);
+                        printf(", ");
+                    }
                 }
                 printf("[ ");
                 for (int j = 0; j < 3; j++) {
-                if (garder[j] != 0) {
-                    printf("%d ", garder[j]);
-                }
+                    if (garder[j] != 0) {
+                        printf("%d, ", garder[j]);
+                    }
                 }
                 printf("]\n");
                 gagne++;
@@ -191,16 +185,16 @@ void lancerDes(int nb_parties) {
             {
                 printf("je garde ");
                 for (int j = 0; j < 3; j++) {
-                if (garder[j] != 0) {
-                    printf("%d ", garder[j]);
-                    printf(", ");
-                }
+                    if (garder[j] != 0) {
+                        printf("%d", garder[j]);
+                        printf(", ");
+                    }
                 }
                 printf("[ ");
                 for (int j = 0; j < 3; j++) {
-                if (garder[j] != 0) {
-                    printf("%d ", garder[j]);
-                }
+                    if (garder[j] != 0) {
+                        printf("%d, ", garder[j]);
+                    }
                 }
                 printf("]\n");
                 compteur =1;         
@@ -209,15 +203,15 @@ void lancerDes(int nb_parties) {
             {
                 printf("je garde ");
                 for (int j = 0; j < 3; j++) {
-                if (garder[j] != 0) {
-                    printf("%d ", garder[j]);
-                }
+                    if (garder[j] != 0) {
+                        printf("%d ", garder[j]);
+                    }
                 }
                 printf("[ ");
                 for (int j = 0; j < 3; j++) {
-                if (garder[j] != 0) {
-                    printf("%d ", garder[j]);
-                }
+                    if (garder[j] != 0) {
+                        printf("%d ", garder[j]);
+                    }
                 }
                 printf("]\n");
                 compteur =2;
@@ -294,7 +288,7 @@ int main (){
                 printf("Entrer n : ");
                 scanf("%d", &n);
 
-                printf("Fibonacci de %d est %.2f : F[%d] = %.2f\n", n, fibonacci(n), n, fibonacci(n));
+                printf("Fibonacci de %d est %.0f : F[%d] = %.0f\n", n, fibonacci(n), n, fibonacci(n));
                 break;
             case 4:
                 printf("Vous avez choisi le TP2.4\n");
@@ -303,12 +297,13 @@ int main (){
             case 5:
                 printf("Vous avez choisi le TP2.5\n" );
                 unsigned int nbrPartie;
-                printf("Combien de parties voulez vous jouer : \n" );
+                printf("Combien de parties voulez vous jouer : " );
                 scanf("%d", &nbrPartie);
+                printf("\n");
                 lancerDes(nbrPartie);
                 break;
             default:
-                printf("Erreur, veuillez rentrer un nombre entre 1 et 5 \n");
+                printf("Erreur, veuillez rentrer un nombre entre 0 et 5 \n");
                 break;
         }
     }
