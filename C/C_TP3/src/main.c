@@ -1,5 +1,3 @@
-#include "../Headers/inc/ProjetExemple/reference_1.h"
-#include "../Headers/inc/ProjetExemple/reference_2.h"
 #include "../Headers/inc/ProjetExemple/livre.h"
 
 int main(){
@@ -20,11 +18,9 @@ int main(){
                break;
             case 1:
                printf("Vous avez choisi le TP3.1\n" );
-               C_1();
                break;
             case 2:
                printf("Vous avez choisi le TP3.2\n" );
-               C_2();
                break;
             case 3:
                printf("Vous avez choisi le TP3.3\n" );
