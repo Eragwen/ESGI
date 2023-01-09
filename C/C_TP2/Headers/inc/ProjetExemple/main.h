@@ -3,7 +3,7 @@
 
 void eqSecondDegre(int a, int b, int c);
 
-void suite();
+void suite(int n);
 
 void fibonacci(int n);
 
