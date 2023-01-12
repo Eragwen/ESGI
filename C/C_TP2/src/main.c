@@ -279,8 +279,8 @@ int main (){
                 printf("Vous avez choisi de sortir du programme.\n");
                 break;
             case 1:
-                unsigned int a,b,c;
                 printf("Vous avez choisi le TP2.1\n" );
+                unsigned int a,b,c;
                 printf("Resoudre l'equation du second degre : Ax^2+Bx+C = 0\n" );
                 printf("Entrer A : " );
                 scanf("%d", &a);
