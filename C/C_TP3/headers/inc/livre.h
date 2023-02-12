@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 #ifndef LIVRE_H
 #define LIVRE_H
@@ -21,6 +18,6 @@ char* selectionLivre(Livre *livre, char *attr);
 
 void afficherLivre(Livre *livre);
 
-int unLivre();
+void livre();
 
 #endif /*LIVRE_H*/
